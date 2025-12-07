@@ -23,7 +23,7 @@ export default function App() {
         "Enabled real-time tracking of complaint status",
         "Created admin dashboards with graphs for monitoring"
       ],
-      tags: ["React", "Frontend", "Dashboard"]
+      tags:["React.js", "MERN Stack" ]
     },
     {
       title: "AI-Driven Dynamic Expiry Management (AIDEM)",
@@ -35,7 +35,7 @@ export default function App() {
         "Implemented searchable inventory tables with real-time indicators",
         "Integrated ML insights with feature importance graphs"
       ],
-      tags: ["React.js", "IoT", "ML Integration", "Data Visualization"]
+      tags: ["React.js","Data Visualization"]
     }
   ];
 
