@@ -219,7 +219,7 @@ export default function App() {
       <section id="projects" className="py-20 px-6 bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-            Featured Projects
+            Projects
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
