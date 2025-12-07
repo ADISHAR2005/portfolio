@@ -85,25 +85,55 @@ export default function App() {
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 w-full z-999 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             ADITYA A
           </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
-            {['Home', 'About', 'Projects', 'Experience', 'Contact'].map((item) => (
-              <a
-                key={item}
+            {['Home', 'About', 'Projects', 'Experience', 'Contact'].map(item => (
+              <a key={item}
                 href={`#${item.toLowerCase()}`}
-                className="hover:text-purple-400 transition-colors duration-300 cursor-pointer"
-                onClick={() => setActiveSection(item.toLowerCase())}
+                className="hover:text-purple-400 transition duration-300"
               >
                 {item}
               </a>
             ))}
           </div>
+
+          {/* Mobile Icon */}
+          <button
+            onClick={() => setActiveSection(prev => prev === "menu" ? "" : "menu")}
+            className="md:hidden focus:outline-none text-purple-300"
+          >
+            {activeSection === "menu" ? (
+              <span className="text-3xl font-bold">✕</span>
+            ) : (
+              <span className="text-3xl font-bold">☰</span>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {activeSection === "menu" && (
+          <div className="md:hidden flex flex-col items-center gap-5 py-5 bg-slate-900/95 backdrop-blur-lg border-t border-purple-500/30 z-999">
+
+            {['Home', 'About', 'Projects', 'Experience', 'Contact'].map(item => (
+              <a key={item}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setActiveSection("")}
+                className="text-lg hover:text-purple-400 transition duration-300"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
+
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
@@ -224,7 +254,7 @@ export default function App() {
           <h2 className="text-4xl font-bold mb-12 text-center bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Experience & Certifications
           </h2>
-          
+
           <div className="mb-12">
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Briefcase className="text-purple-400" />
